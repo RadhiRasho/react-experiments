@@ -6,13 +6,7 @@ type BatteryProps = {
 	supported: boolean | null;
 };
 
-export default function Battery({
-	level,
-	charging,
-	chargingTime,
-	dischargingTime,
-	supported,
-}: BatteryProps) {
+export default function Battery({ level, charging, chargingTime, dischargingTime, supported }: BatteryProps) {
 	return (
 		<div>
 			<h2>Level: {level}%</h2>
