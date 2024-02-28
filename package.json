@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-	"turbo": "turbo dev",
+    "turbo": "turbo dev",
     "start": "next start",
     "lint": "next lint",
     "biome": "biome format --write . && biome lint --apply .",
@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",
+    "@tanstack/react-query": "^5.24.1",
+    "@tanstack/react-query-devtools": "^5.24.1",
     "@uidotdev/usehooks": "^2.4.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -24,6 +26,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
+    "@tanstack/eslint-plugin-query": "^5.20.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
