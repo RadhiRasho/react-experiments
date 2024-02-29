@@ -1,4 +1,4 @@
-## Small Project To Mess With React Related Technologies
+## Expirementing with React.JS Related Technologies
 
 - React
 - Next.JS
