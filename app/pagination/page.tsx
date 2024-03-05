@@ -42,7 +42,7 @@ export default function Pagination() {
 
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-evenly p-24 bg-black text-white">
-			{/* <h1>Pagination</h1>
+			<h1>Pagination</h1>
 			{isPending && <div className="text-blue-500">Loading...</div>}
 			{error && <div className="text-red-500">{error?.message}</div>}
 			{isSuccess && (
@@ -65,7 +65,7 @@ export default function Pagination() {
 						</button>
 					</div>
 				</>
-			)} */}
+			)}
 
 			<h1>Infinite Pagination</h1>
 			{infiniteIsSuccess && (
