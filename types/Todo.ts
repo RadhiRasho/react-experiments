@@ -1,5 +1,5 @@
 export type Todo = {
-	task_id: number;
-	task_name: string;
-	description: string;
-};
+		taskId: number;
+		taskName: string;
+		description: string;
+	};
