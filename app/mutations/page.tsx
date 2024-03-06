@@ -1,4 +1,5 @@
 "use client";
+import { TodoCard } from "@/components/TodoCard";
 import type { Todo } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 
@@ -6,7 +7,7 @@ export default function Mutation() {
 	const { data, isSuccess, isError, isPending, error } = useQuery<Todo[]>({
 		queryKey: ["todos"],
 		queryFn: async (): Promise<Todo[]> => {
-			const res = await fetch("/api/todos?limit=2&offset=0");
+			const res = await fetch("/api/todos?limit=10&offset=0");
 
 			const data = await res.json();
 
@@ -22,17 +23,11 @@ export default function Mutation() {
 			{isSuccess && (
 				<div>
 					<h1>Todos: </h1>
-					<ul>
+					<div className="grid gap-4 grid-cols-5">
 						{data.map((x) => {
-							return (
-								<li key={x.taskId}>
-									<div>{x.taskId}</div>
-									<div>{x.taskName}</div>
-									<p>{x.description}</p>
-								</li>
-							);
+							return <TodoCard key={x.taskId} description={x.description} taskId={x.taskId} taskName={x.taskName} />;
 						})}
-					</ul>
+					</div>
 				</div>
 			)}
 		</main>
