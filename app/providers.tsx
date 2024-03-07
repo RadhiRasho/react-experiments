@@ -3,8 +3,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useState } from "react";
-import GlobalIndicator from "@/components/GlobalIndicator";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "@/components/ui/sonner";
+import { NavMenu } from "@/components/NavMenu";
 
 export default function Providers({
 	children,
@@ -14,13 +15,14 @@ export default function Providers({
 	const [queryClient] = useState(() => new QueryClient());
 
 	return (
-		<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-			<QueryClientProvider client={queryClient}>
-				<GlobalIndicator>
+		<QueryClientProvider client={queryClient}>
+			<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+				<NavMenu>
 					{children}
-					<ReactQueryDevtools initialIsOpen={false} />
-				</GlobalIndicator>
-			</QueryClientProvider>
-		</ThemeProvider>
+					<ReactQueryDevtools position="left" initialIsOpen={false} />
+					<Toaster duration={2500} position="bottom-left" closeButton />
+				</NavMenu>
+			</ThemeProvider>
+		</QueryClientProvider>
 	);
 }

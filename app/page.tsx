@@ -63,7 +63,7 @@ export default function Home() {
 	});
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-evenly p-24 bg-black text-white">
+		<main className="flex min-h-screen flex-col items-center justify-evenly p-24">
 			<button type="button" className="border border-white w-32 h-10 rounded-lg" onClick={() => refetch()}>
 				Refetch Repo
 			</button>

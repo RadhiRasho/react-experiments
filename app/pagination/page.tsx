@@ -41,7 +41,7 @@ export default function Pagination() {
 	});
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-evenly p-24 bg-black text-white">
+		<main className="flex min-h-screen flex-col items-center justify-evenly p-24 ">
 			<h1>Pagination</h1>
 			{isPending && <div className="text-blue-500">Loading...</div>}
 			{error && <div className="text-red-500">{error?.message}</div>}

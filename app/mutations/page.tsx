@@ -1,35 +1,37 @@
 "use client";
+
 import { TodoCard } from "@/components/TodoCard";
 import type { Todo } from "@/types";
 import { useQuery } from "@tanstack/react-query";
+import { createTodo, deleteTodo, getTodos, updateTodo } from "./action";
+import { TodoForm } from "@/components/TodoForm";
+
 
 export default function Mutation() {
+
 	const { data, isSuccess, isError, isPending, error } = useQuery<Todo[]>({
 		queryKey: ["todos"],
-		queryFn: async (): Promise<Todo[]> => {
-			const res = await fetch("/api/todos?limit=10&offset=0");
-
-			const data = await res.json();
-
-			return data;
-		},
+		queryFn: () => getTodos(),
+		staleTime: 20 * 1000,
 	});
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-evenly p-24 bg-black text-white">
-			{isPending && <div>Loading...</div>}
-			{isError && <div>{error?.message}</div>}
-
-			{isSuccess && (
-				<div>
-					<h1>Todos: </h1>
-					<div className="grid gap-4 grid-cols-5">
+		<main className="flex min-h-screen flex-row gap-2 justify-between pt-16 px-16">
+			<div className="w-2/12">
+				<TodoForm action={createTodo} />
+			</div>
+			<br />
+			<div className="w-10/12">
+				{isPending && <div>Loading...</div>}
+				{isError && <div>{error?.message}</div>}
+				{isSuccess && (
+					<div className="grid gap-3 grid-cols-4 grid-rows-5">
 						{data.map((x) => {
-							return <TodoCard key={x.taskId} description={x.description} taskId={x.taskId} taskName={x.taskName} />;
+							return <TodoCard updateAction={updateTodo} deleteAction={deleteTodo} key={x.taskId} {...x} />;
 						})}
 					</div>
-				</div>
-			)}
+				)}
+			</div>
 		</main>
 	);
 }

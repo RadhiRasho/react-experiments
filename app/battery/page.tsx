@@ -7,7 +7,7 @@ import { useBattery } from "@uidotdev/usehooks";
 export default function Home() {
 	const { charging, dischargingTime, chargingTime, level, loading, supported } = useBattery();
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24 bg-black text-red-500">
+		<main className="flex min-h-screen flex-col items-center justify-between p-24 text-red-500">
 			<div>
 				{!loading && level ? (
 					<Battery
