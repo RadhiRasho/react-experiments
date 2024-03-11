@@ -1,4 +1,3 @@
-
 import type { Todo } from "@/types/Todo";
 import { NextResponse, type NextRequest } from "next/server";
 
