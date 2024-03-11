@@ -7,6 +7,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import { Textarea } from "./ui/textarea";
 
 const formSchema = z.object({
 	taskName: z.string().min(2, {
@@ -38,9 +39,9 @@ export function TodoForm({ action }: TodoFormProps) {
 	}
 
 	return (
-		<div className="w-full">
+		<div className="w-full md:px-0 xs:px-6">
 			<Form {...form}>
-				<form onSubmit={form.handleSubmit(submit)} className="space-y-4 rounded-xl border p-4">
+				<form onSubmit={form.handleSubmit(submit)} className="space-y-4 w-full rounded-xl border p-4">
 					<FormField
 						control={form.control}
 						name="taskName"
@@ -61,7 +62,7 @@ export function TodoForm({ action }: TodoFormProps) {
 							<FormItem>
 								<FormLabel>Description</FormLabel>
 								<FormControl>
-									<Input placeholder="Really Fun Thing" {...field} />
+									<Textarea placeholder="Really Fun Thing" {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>

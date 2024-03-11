@@ -10,10 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 type TodoCardProps = {
 	deleteAction: (taskId: number) => Promise<string>;
 	updateAction: (values: Todo) => Promise<string>;
-	taskId: number;
-	taskName: string;
-	description: string;
-};
+} & Todo;
 
 export function TodoCard({ updateAction, deleteAction, description, taskId, taskName }: TodoCardProps) {
 	const queryClient = useQueryClient();
@@ -37,7 +34,7 @@ export function TodoCard({ updateAction, deleteAction, description, taskId, task
 	return (
 		<Card
 			key={taskId}
-			className="hover:-translate-x-1 hover:-translate-y-1 flex min-h-full min-w-72 flex-col justify-between hover:z-50 hover:animate-in hover:duration-350"
+			className="hover:-translate-x-1 hover:-translate-y-1 flex min-h-full h-fit min-w-72 flex-col justify-between md:hover:z-50 md:hover:animate-in md:hover:duration-350"
 		>
 			{edit ? (
 				<TodoCardForm

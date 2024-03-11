@@ -14,16 +14,16 @@ export default function Todos() {
 	});
 
 	return (
-		<main className="flex min-h-screen flex-row justify-between gap-2 px-16 pt-16">
-			<div className="w-2/12">
+		<main className="flex min-h-screen md:flex-row md:items-start  xs:flex-col xs:items-center justify-between gap-1 md:px-6 pt-6">
+			<div className="md:w-2/12 xs:w-full">
 				<TodoForm action={createTodo} />
 			</div>
 			<br />
-			<div className="w-10/12">
+			<div className="md:w-10/12 xs:w-full">
 				{isPending && <div>Loading...</div>}
 				{isError && <div>{error?.message}</div>}
 				{isSuccess && (
-					<div className="grid grid-cols-4 grid-rows-5 gap-3">
+					<div className="grid md:grid-cols-4 xs:auto-cols-auto grid-rows-auto gap-3 px-6 pb-4">
 						{data.map((x) => {
 							return <TodoCard updateAction={updateTodo} deleteAction={deleteTodo} key={x.taskId} {...x} />;
 						})}

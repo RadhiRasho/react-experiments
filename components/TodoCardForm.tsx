@@ -39,6 +39,8 @@ export function TodoCardForm({ cancelEdit, action, taskId, taskName, description
 	async function submit(values: z.infer<typeof formSchema>) {
 		const data = await action({ ...values, taskId });
 
+		cancelEdit();
+
 		await queryClient.refetchQueries({ queryKey: ["todos"] });
 
 		toast.info(data);
@@ -65,14 +67,19 @@ export function TodoCardForm({ cancelEdit, action, taskId, taskName, description
 						</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<CardDescription>
+						<CardDescription wrapper="div">
 							<FormField
 								control={form.control}
 								name="description"
 								render={({ field }) => (
 									<FormItem>
 										<FormControl>
-											<Textarea className="pb-0 text-slate-400" placeholder="Really Fun Thing" {...field} rows={10} />
+											<Textarea
+												className="pb-0 text-slate-400 resize-y min-h-fit max-h-96"
+												placeholder="Really Fun Thing"
+												{...field}
+												rows={10}
+											/>
 										</FormControl>
 										<FormMessage />
 									</FormItem>
