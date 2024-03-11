@@ -6,15 +6,15 @@ export default function GlobalIndicator() {
 	return (
 		<>
 			{isFetching ? (
-				<div className="flex text-red-500 w-9 items-center justify-between">
+				<div className="flex w-9 items-center justify-between text-red-500">
 					{isFetching}{" "}
-					<div className="bg-red-500 rounded-full flex justify-center items-center h-4 w-4 shadow-[0_0_20px] shadow-red-500">
-						<div className="bg-red-500 rounded-full h-4 w-4 motion-safe:animate-ping-slow">{""}</div>
+					<div className="flex h-4 w-4 items-center justify-center rounded-full bg-red-500 shadow-[0_0_20px] shadow-red-500">
+						<div className="h-4 w-4 rounded-full bg-red-500 motion-safe:animate-ping-slow">{""}</div>
 					</div>
 				</div>
 			) : (
-				<div className="flex text-red-500 w-9 items-center justify-between">
-					{isFetching} <div className="bg-red-500 rounded-full flex justify-center items-center h-4 w-4">{""}</div>
+				<div className="flex w-9 items-center justify-between text-red-500">
+					{isFetching} <div className="flex h-4 w-4 items-center justify-center rounded-full bg-red-500">{""}</div>
 				</div>
 			)}
 		</>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as LabelPrimitive from "@radix-ui/react-label";
+import type * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import {
 	Controller,
@@ -142,7 +142,7 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<
 			<p
 				ref={ref}
 				id={formMessageId}
-				className={cn("text-[0.8rem] font-medium text-red-500 dark:text-red-900", className)}
+				className={cn("font-medium text-[0.8rem] text-red-500 dark:text-red-900", className)}
 				{...props}
 			>
 				{body}

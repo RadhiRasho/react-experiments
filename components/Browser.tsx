@@ -10,7 +10,7 @@ export function Browser({ width, height }: BrowserProps) {
 
 	return (
 		<div
-			className={"bg-gray-800 rounded-lg border border-white grid place-content-center"}
+			className={"grid place-content-center rounded-lg border border-white bg-gray-800"}
 			style={{ height: height / 4, width: width / 4 }}
 		>
 			hello

@@ -1,15 +1,15 @@
-import type { Todo } from "@/types";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import type { Todo } from "@/types/Todo";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Cross1Icon, PaperPlaneIcon } from "@radix-ui/react-icons";
 import { useQueryClient } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Textarea } from "./ui/textarea";
-import { Cross1Icon, PaperPlaneIcon } from "@radix-ui/react-icons";
 
 const formSchema = z.object({
 	taskName: z.string().min(2, {
@@ -46,7 +46,7 @@ export function TodoCardForm({ cancelEdit, action, taskId, taskName, description
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(submit)} className="h-full flex justify-between flex-col">
+			<form onSubmit={form.handleSubmit(submit)} className="flex h-full flex-col justify-between">
 				<div>
 					<CardHeader>
 						<CardTitle>
@@ -72,7 +72,7 @@ export function TodoCardForm({ cancelEdit, action, taskId, taskName, description
 								render={({ field }) => (
 									<FormItem>
 										<FormControl>
-											<Textarea className="text-slate-400 pb-0" placeholder="Really Fun Thing" {...field} rows={10} />
+											<Textarea className="pb-0 text-slate-400" placeholder="Really Fun Thing" {...field} rows={10} />
 										</FormControl>
 										<FormMessage />
 									</FormItem>

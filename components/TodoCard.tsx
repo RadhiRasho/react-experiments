@@ -1,11 +1,11 @@
-import { toast } from "sonner";
-import { Button } from "./ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
-import { TrashIcon, Pencil2Icon } from "@radix-ui/react-icons";
+import type { Todo } from "@/types/Todo";
+import { Pencil2Icon, TrashIcon } from "@radix-ui/react-icons";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
+import { toast } from "sonner";
 import { TodoCardForm } from "./TodoCardForm";
-import type { Todo } from "@/types";
+import { Button } from "./ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 
 type TodoCardProps = {
 	deleteAction: (taskId: number) => Promise<string>;
@@ -37,7 +37,7 @@ export function TodoCard({ updateAction, deleteAction, description, taskId, task
 	return (
 		<Card
 			key={taskId}
-			className=" flex flex-col justify-between min-w-72 min-h-full hover:z-50 hover:animate-in hover:-translate-x-1 hover:-translate-y-1 hover:duration-350"
+			className="hover:-translate-x-1 hover:-translate-y-1 flex min-h-full min-w-72 flex-col justify-between hover:z-50 hover:animate-in hover:duration-350"
 		>
 			{edit ? (
 				<TodoCardForm

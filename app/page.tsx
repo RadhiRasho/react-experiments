@@ -1,6 +1,6 @@
 "use client";
 
-import type { RandomUser, Repo } from "@/types";
+import type { RandomUser, Repo } from "@/types/RandomUser";
 import { queryOptions, useQueries, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -64,7 +64,7 @@ export default function Home() {
 
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-evenly p-24">
-			<button type="button" className="border border-white w-32 h-10 rounded-lg" onClick={() => refetch()}>
+			<button type="button" className="h-10 w-32 rounded-lg border border-white" onClick={() => refetch()}>
 				Refetch Repo
 			</button>
 			{isPending && <span className="text-blue-500">Loading...</span>}
@@ -78,13 +78,13 @@ export default function Home() {
 				</div>
 			)}
 			{users.length > 0 && (
-				<div className={`overflow-hidden text-center ${users?.length > 16 ? "hover:overflow-y-scroll" : ""} h-96 w-56`}>
+				<div className={`overflow-hidden text-center${users?.length > 16 ? "hover:overflow-y-scroll" : ""}h-96 w-56`}>
 					{users?.length > 0 && users?.map((user, i) => <div key={`user-${i * 2}`}>{user.data}</div>)}
 				</div>
 			)}
 			<button
 				type="button"
-				className="border border-white w-32 h-10 rounded-lg active:animate-in active:translate-y-1"
+				className="h-10 w-32 rounded-lg border border-white active:translate-y-1 active:animate-in"
 				onClick={() => setCount((c) => c + 1)}
 			>
 				Increment

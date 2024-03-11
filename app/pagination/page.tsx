@@ -1,5 +1,5 @@
 "use client";
-import type { RandomUser } from "@/types";
+import type { RandomUser } from "@/types/RandomUser";
 import { keepPreviousData, useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 

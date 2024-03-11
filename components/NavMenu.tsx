@@ -8,12 +8,12 @@ type NavMenuProps = {
 
 export function NavMenu({ children }: NavMenuProps) {
 	return (
-		<div>
+		<>
 			<div className="flex justify-between px-4">
 				<ModeToggle />
 				<GlobalIndicator />
 			</div>
 			{children}
-		</div>
+		</>
 	);
 }

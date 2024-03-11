@@ -1,4 +1,4 @@
-import type { Todo, TodoCreate } from "@/types";
+import type { Todo, TodoCreate } from "@/types/Todo";
 
 export async function createTodo({ taskName, description }: TodoCreate): Promise<string> {
 	const res = await fetch("/api/todos/", {

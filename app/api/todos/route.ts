@@ -1,5 +1,5 @@
-import type { Todo } from "@/types";
 
+import type { Todo } from "@/types/Todo";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function GET(req: NextRequest): Promise<NextResponse<Todo[]>> {
