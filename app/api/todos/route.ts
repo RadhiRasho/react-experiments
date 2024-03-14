@@ -6,7 +6,7 @@ export async function GET(req: NextRequest): Promise<NextResponse<Todo[]>> {
 	const limit = params.get("limit");
 	const offset = params.get("offset") ?? "0";
 
-	const res = await fetch(`${process.env.SERVER_URI}/?limit=${limit}&offset=${offset}`);
+	const res = await fetch(`${process.env.SERVER_URI}/todos?limit=${limit}&offset=${offset}`);
 
 	const data = await res.json();
 
@@ -16,7 +16,7 @@ export async function GET(req: NextRequest): Promise<NextResponse<Todo[]>> {
 export async function POST(req: NextRequest): Promise<NextResponse> {
 	const body = await req.json();
 
-	const res = await fetch(`${process.env.SERVER_URI}/create`, {
+	const res = await fetch(`${process.env.SERVER_URI}/todos/create`, {
 		method: "POST",
 		body: JSON.stringify(body),
 		headers: { "Content-Type": "application/json" },
@@ -24,15 +24,13 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
 	const data = await res.text();
 
-	console.log(data);
-
 	return NextResponse.json({ message: data });
 }
 
 export async function DELETE(req: NextRequest): Promise<NextResponse> {
 	const { taskId } = await req.json();
 
-	const res = await fetch(`${process.env.SERVER_URI}/delete/${taskId}`, { method: "DELETE" });
+	const res = await fetch(`${process.env.SERVER_URI}/todos/delete/${taskId}`, { method: "DELETE" });
 
 	const data = await res.text();
 
@@ -42,7 +40,7 @@ export async function DELETE(req: NextRequest): Promise<NextResponse> {
 export async function PUT(req: NextRequest): Promise<NextResponse> {
 	const body = await req.json();
 
-	const res = await fetch(`${process.env.SERVER_URI}/update`, {
+	const res = await fetch(`${process.env.SERVER_URI}/todos/update`, {
 		method: "PUT",
 		body: JSON.stringify(body),
 		headers: { "Content-Type": "application/json" },

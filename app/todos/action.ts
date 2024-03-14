@@ -20,15 +20,14 @@ export async function deleteTodo(taskId: number): Promise<string> {
 }
 
 export async function updateTodo(values: Todo) {
-	console.log(values);
 	const res = await fetch("/api/todos/", { method: "PUT", body: JSON.stringify(values) });
 	const data = await res.json();
 
 	return data.message;
 }
 
-export async function getTodos(): Promise<Todo[]> {
-	const res = await fetch("/api/todos");
+export async function getTodos(limit?: number, offset?: number): Promise<Todo[]> {
+	const res = await fetch(`/api/todos?limit=${limit}&offset=${offset}`);
 	const data = await res.json();
 
 	return data;
