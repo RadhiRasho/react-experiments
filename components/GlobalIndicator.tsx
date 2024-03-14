@@ -3,6 +3,7 @@ import { useIsFetching } from "@tanstack/react-query";
 
 export default function GlobalIndicator() {
 	const isFetching = useIsFetching();
+
 	return (
 		<>
 			{isFetching ? (

@@ -1,5 +1,5 @@
 import type { Todo } from "@/types/Todo";
-import { NextResponse, type NextRequest } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest): Promise<NextResponse<Todo[]>> {
 	const params = req.nextUrl.searchParams;
