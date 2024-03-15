@@ -43,8 +43,6 @@ export function TodoCardForm({ cancelEdit, action, taskId, taskName, description
 		setTimeout(async () => {
 			const data = await action({ ...values, taskId });
 
-			cancelEdit();
-
 			await queryClient.refetchQueries({ queryKey: ["todos"] });
 
 			toast.info(data);
