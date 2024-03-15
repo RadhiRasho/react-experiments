@@ -10,12 +10,8 @@ import { z } from "zod";
 import { Textarea } from "./ui/textarea";
 
 const formSchema = z.object({
-	taskName: z.string().min(2, {
-		message: "Task Name is too short.",
-	}),
-	description: z.string().min(10, {
-		message: "Description is too short.",
-	}),
+	taskName: z.string().min(2, { message: "Task Name is too short." }),
+	description: z.string().min(10, { message: "Description is too short." }),
 });
 
 type TodoFormProps = {

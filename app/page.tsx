@@ -63,32 +63,36 @@ export default function Home() {
 	});
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-evenly p-24">
-			<button type="button" className="h-10 w-32 rounded-lg border border-white" onClick={() => refetch()}>
-				Refetch Repo
-			</button>
-			{isPending && <span className="text-blue-500">Loading...</span>}
-			{isError && <span className="text-red-500">Error: {error.message}</span>}
-			{isSuccess && (
-				<div>
-					<h1>{data.name}</h1>
-					<p>{data.description}</p>
-					<strong>👀 {data.subscribers_count}</strong> <strong>✨ {data.stargazers_count}</strong>{" "}
-					<strong>🍴 {data.forks_count}</strong>
-				</div>
-			)}
-			{users.length > 0 && (
-				<div className={`overflow-hidden text-center${users?.length > 16 ? "hover:overflow-y-scroll" : ""}h-96 w-56`}>
-					{users?.length > 0 && users?.map((user, i) => <div key={`user-${i * 2}`}>{user.data}</div>)}
-				</div>
-			)}
-			<button
-				type="button"
-				className="h-10 w-32 rounded-lg border border-white active:translate-y-1 active:animate-in"
-				onClick={() => setCount((c) => c + 1)}
-			>
-				Increment
-			</button>
+		<main className="flex min-h-screen flex-col items-center justify-between p-24">
+			<div className="flex justify-center flex-col items-center">
+				<button type="button" className="h-10 w-32 rounded-lg border border-white" onClick={() => refetch()}>
+					Refetch Repo
+				</button>
+				{isPending && <span className="text-blue-500">Loading...</span>}
+				{isError && <span className="text-red-500">Error: {error.message}</span>}
+				{isSuccess && (
+					<div>
+						<h1>{data.name}</h1>
+						<p>{data.description}</p>
+						<strong>👀 {data.subscribers_count}</strong> <strong>✨ {data.stargazers_count}</strong>{" "}
+						<strong>🍴 {data.forks_count}</strong>
+					</div>
+				)}
+			</div>
+			<div>
+				{users.length > 0 && (
+					<div className={`overflow-hidden text-center${users?.length > 16 ? "hover:overflow-y-scroll" : ""}h-96 w-56`}>
+						{users?.length > 0 && users?.map((user, i) => <div key={`user-${i * 2}`}>{user.data}</div>)}
+					</div>
+				)}
+				<button
+					type="button"
+					className="h-10 w-32 rounded-lg border border-white active:translate-y-1 active:animate-in"
+					onClick={() => setCount((c) => c + 1)}
+				>
+					Increment
+				</button>
+			</div>
 		</main>
 	);
 }

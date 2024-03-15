@@ -3,8 +3,9 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import { Input } from "@/components/ui/input";
 import type { Todo } from "@/types/Todo";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Cross1Icon, PaperPlaneIcon } from "@radix-ui/react-icons";
+import { Cross1Icon, SymbolIcon as LoadingIcon, PaperPlaneIcon } from "@radix-ui/react-icons";
 import { useQueryClient } from "@tanstack/react-query";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -30,6 +31,7 @@ type TodoCardFormProps = {
 
 export function TodoCardForm({ cancelEdit, action, taskId, taskName, description }: TodoCardFormProps) {
 	const queryClient = useQueryClient();
+	const [loading, setLoading] = useState(false);
 
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -37,13 +39,19 @@ export function TodoCardForm({ cancelEdit, action, taskId, taskName, description
 	});
 
 	async function submit(values: z.infer<typeof formSchema>) {
-		const data = await action({ ...values, taskId });
+		setLoading(true);
+		setTimeout(async () => {
+			const data = await action({ ...values, taskId });
 
-		cancelEdit();
+			cancelEdit();
 
-		await queryClient.refetchQueries({ queryKey: ["todos"] });
+			await queryClient.refetchQueries({ queryKey: ["todos"] });
 
-		toast.info(data);
+			toast.info(data);
+
+			setLoading(false);
+			cancelEdit();
+		}, 5000);
 	}
 
 	return (
@@ -93,7 +101,7 @@ export function TodoCardForm({ cancelEdit, action, taskId, taskName, description
 						<Cross1Icon className="text-xl" />
 					</Button>
 					<Button className="bg-green-500 hover:bg-green-500" title="Submit Edit" type="submit">
-						<PaperPlaneIcon className="text-xl" />
+						{loading ? <LoadingIcon className="motion-safe:animate-spin-slow" /> : <PaperPlaneIcon className="text-xl" />}
 					</Button>
 				</CardFooter>
 			</form>
