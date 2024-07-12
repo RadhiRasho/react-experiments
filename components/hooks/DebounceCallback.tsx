@@ -12,7 +12,7 @@ export default function DebounceCallback() {
 			<p>Debounced value: {value}</p>
 
 			<input
-				className="rounded-md border p-2 text-primary"
+				className="rounded-md border p-2 border-gray-500 dark:border-gray-50  text-primary"
 				type="text"
 				defaultValue={value}
 				onChange={(event) => debounced(event.target.value)}

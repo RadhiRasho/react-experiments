@@ -9,7 +9,7 @@ export default function DebounceValue({ defaultValue = "John" }) {
 
 			<input
 				type="text"
-				className="rounded-md border p-2 text-primary"
+				className="rounded-md border border-gray-500 dark:border-gray-50 p-2 text-primary"
 				defaultValue={defaultValue}
 				onChange={(event) => setValue(event.target.value)}
 			/>
