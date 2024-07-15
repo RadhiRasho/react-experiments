@@ -32,7 +32,7 @@ export default function EventListener() {
 	useEventListener("click", onClick, buttonRef);
 
 	return (
-		<div style={{ minHeight: "200vh" }}>
+		<div className="min-h-full">
 			<button type="button" ref={buttonRef}>
 				Click me
 			</button>

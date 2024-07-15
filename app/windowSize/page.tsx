@@ -1,6 +1,6 @@
 "use client";
 import { Browser } from "@/components/Browser";
-import { useWindowSize } from "@uidotdev/usehooks";
+import { useWindowSize } from "usehooks-ts";
 
 export default function Home() {
 	const { width, height } = useWindowSize();

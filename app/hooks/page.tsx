@@ -12,46 +12,78 @@ import DocumentTitle from "@/components/hooks/DocumentTitle";
 import EventCallback from "@/components/hooks/EventCallback";
 import Hover from "@/components/hooks/Hover";
 import IntersectionObserver from "@/components/hooks/IntersectionObserver";
+import IsClient from "@/components/hooks/IsClient";
+import SetInterval from "@/components/hooks/SetInterval";
+import IsMounted from "@/components/hooks/IsMounted";
+import IsomorphicLayoutEffect from "@/components/hooks/IsomorphicLayoutEffect";
+import LocalStorage from "@/components/hooks/LocalStorage";
+import MapHook from "@/components/hooks/MapHook";
+import MediaQuery from "@/components/hooks/MediaQuery";
+import OnClickOutside from "@/components/hooks/OnClickOutside";
 
 export default function Home() {
 	return (
 		<main className="min-h-screen items-center justify-evenly p-4">
-			<div className="grid md:grid-cols-4 xs:auto-cols-auto grid-rows-auto gap-3 px-6 pb-4 *:flex *:justify-center *:items-center">
-				<div className="border rounded-md p-4">
+			<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xs:auto-cols-auto grid-rows-auto gap-3 px-6 pb-4 *:flex *:justify-center *:items-center *:border *:dark:border-gray-50 *:border-gray-800 *:rounded-md *:p-4">
+				<div>
 					<BooleanHook />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<ClickAnywhere />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<CopyToClipboard />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<CountDown />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<Counter />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<DarkMode />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<DebounceCallback />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<DebounceValue />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<DocumentTitle />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<EventCallback />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<Hover />
 				</div>
-				<div className="border rounded-md p-4">
+				<div>
 					<IntersectionObserver />
+				</div>
+				<div>
+					<SetInterval />
+				</div>
+				<div>
+					<IsClient />
+				</div>
+				<div>
+					<IsMounted />
+				</div>
+				<div>
+					<IsomorphicLayoutEffect />
+				</div>
+				<div>
+					<LocalStorage />
+				</div>
+				<div>
+					<MapHook />
+				</div>
+				<div>
+					<MediaQuery />
+				</div>
+				<div>
+					<OnClickOutside />
 				</div>
 				{/* Not a bit fan of this, but could be useful in the future */}
 				{/* <div className="border rounded-md p-4">

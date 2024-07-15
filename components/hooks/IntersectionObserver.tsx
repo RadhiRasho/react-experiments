@@ -5,9 +5,9 @@ function Section(props: { title: string }) {
 		threshold: 0.5,
 	});
 
-	console.log(`Render Section ${props.title}`, {
-		isIntersecting,
-	});
+	// console.log(`Render Section ${props.title}`, {
+	// 	isIntersecting,
+	// });
 
 	return (
 		<div ref={ref} className="flex border border-dashed border-primary text-2xl">
