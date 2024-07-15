@@ -58,7 +58,7 @@ export default function Home() {
 						staleTime: 3000,
 						gcTime: 3000,
 					});
-			  })
+				})
 			: [],
 	});
 

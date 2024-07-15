@@ -8,10 +8,7 @@ export default function DarkMode() {
 	});
 	const { setTheme } = useTheme();
 
-	useEffect(
-		() => setTheme(isDarkMode ? "dark" : "light"),
-		[isDarkMode, setTheme],
-	);
+	useEffect(() => setTheme(isDarkMode ? "dark" : "light"), [isDarkMode, setTheme]);
 
 	return (
 		<div className="flex flex-col gap-2 flex-grow-0 justify-start items-center">

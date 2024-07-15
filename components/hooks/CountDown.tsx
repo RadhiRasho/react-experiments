@@ -6,11 +6,10 @@ import { useCountdown } from "usehooks-ts";
 
 export default function CountDown() {
 	const [intervalValue, setIntervalValue] = useState<number>(1000);
-	const [count, { startCountdown, stopCountdown, resetCountdown }] =
-		useCountdown({
-			countStart: 60,
-			intervalMs: intervalValue,
-		});
+	const [count, { startCountdown, stopCountdown, resetCountdown }] = useCountdown({
+		countStart: 60,
+		intervalMs: intervalValue,
+	});
 
 	const handleChangeIntervalValue = (event: ChangeEvent<HTMLInputElement>) => {
 		setIntervalValue(Number(event.target.value));

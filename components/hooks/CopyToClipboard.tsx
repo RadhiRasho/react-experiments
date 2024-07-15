@@ -41,9 +41,7 @@ export default function CopyToClipboard() {
 			<div className="flex gap-1 justify-center items-baseline">
 				Copied value:{" "}
 				{copiedText ? (
-					<span className="bg-red-500 p-1 rounded-md flex justify-center w-8">
-						{copiedText}
-					</span>
+					<span className="bg-red-500 p-1 rounded-md flex justify-center w-8">{copiedText}</span>
 				) : (
 					<span>Nothing is copied yet!</span>
 				)}

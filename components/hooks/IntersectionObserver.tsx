@@ -10,10 +10,7 @@ function Section(props: { title: string }) {
 	});
 
 	return (
-		<div
-			ref={ref}
-			className="flex border border-dashed border-primary text-2xl"
-		>
+		<div ref={ref} className="flex border border-dashed border-primary text-2xl">
 			<div>{props.title}</div>
 		</div>
 	);
