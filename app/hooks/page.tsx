@@ -20,6 +20,16 @@ import LocalStorage from "@/components/hooks/LocalStorage";
 import MapHook from "@/components/hooks/MapHook";
 import MediaQuery from "@/components/hooks/MediaQuery";
 import OnClickOutside from "@/components/hooks/OnClickOutside";
+import ReadLocalStorage from "@/components/hooks/ReadLocalStorage";
+import ResizeObserver, { WithDebounce } from "@/components/hooks/ResizeObserver";
+import Screen from "@/components/hooks/Screen";
+import Script from "@/components/hooks/Script";
+import { ScrollLock, ScrollLockModal } from "@/components/hooks/ScrollLock";
+import SessionStorage from "@/components/hooks/SessionStorage";
+import Step from "@/components/hooks/Step";
+import TernaryDarkMode from "@/components/hooks/TerneryDarkMode";
+
+
 
 export default function Home() {
 	return (
@@ -84,6 +94,36 @@ export default function Home() {
 				</div>
 				<div>
 					<OnClickOutside />
+				</div>
+				<div>
+					<ReadLocalStorage />
+				</div>
+				<div>
+					<ResizeObserver />
+				</div>
+				<div>
+					<WithDebounce />
+				</div>
+				<div>
+					<Screen />
+				</div>
+				<div>
+					<Script />
+				</div>
+				<div>
+					<ScrollLock />
+				</div>
+				{/* <div>
+					<ScrollLockModal />
+				</div> */}
+				<div>
+					<SessionStorage />
+				</div>
+				<div>
+					<Step />
+				</div>
+				<div>
+					<TernaryDarkMode />
 				</div>
 				{/* Not a bit fan of this, but could be useful in the future */}
 				{/* <div className="border rounded-md p-4">
