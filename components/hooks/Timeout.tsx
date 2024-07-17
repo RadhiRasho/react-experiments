@@ -12,11 +12,7 @@ export default function Timeout() {
 
 	return (
 		<div>
-			<p>
-				{visible
-					? "I'm visible for 5000ms"
-					: "You can no longer see this content"}
-			</p>
+			<p>{visible ? "I'm visible for 5000ms" : "You can no longer see this content"}</p>
 		</div>
 	);
 }

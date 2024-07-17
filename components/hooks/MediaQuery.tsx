@@ -1,11 +1,15 @@
+import { Laptop, Monitor, Phone, Tablet } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
-import { Phone, Tablet, Laptop, Monitor } from "lucide-react";
 
 export default function MediaQuery() {
-	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)", {initializeWithValue: false});
-	const isMediumDevice = useMediaQuery("only screen and (min-width : 769px) and (max-width : 992px)", {initializeWithValue: false});
-	const isLargeDevice = useMediaQuery("only screen and (min-width : 993px) and (max-width : 1200px)", {initializeWithValue: false});
-	const isExtraLargeDevice = useMediaQuery("only screen and (min-width : 1201px)", {initializeWithValue: false});
+	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)", { initializeWithValue: false });
+	const isMediumDevice = useMediaQuery("only screen and (min-width : 769px) and (max-width : 992px)", {
+		initializeWithValue: false,
+	});
+	const isLargeDevice = useMediaQuery("only screen and (min-width : 993px) and (max-width : 1200px)", {
+		initializeWithValue: false,
+	});
+	const isExtraLargeDevice = useMediaQuery("only screen and (min-width : 1201px)", { initializeWithValue: false });
 
 	return (
 		<div className="grid grid-cols-2 gap-10 justify-between ">

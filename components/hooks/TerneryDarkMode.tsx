@@ -5,20 +5,12 @@ import { useTernaryDarkMode } from "usehooks-ts";
 type TernaryDarkMode = ReturnType<typeof useTernaryDarkMode>["ternaryDarkMode"];
 
 export default function TernaryDarkMode() {
-	const {
-		isDarkMode,
-		ternaryDarkMode,
-		setTernaryDarkMode,
-		toggleTernaryDarkMode,
-	} = useTernaryDarkMode({
+	const { isDarkMode, ternaryDarkMode, setTernaryDarkMode, toggleTernaryDarkMode } = useTernaryDarkMode({
 		initializeWithValue: false,
 	});
 	const { setTheme } = useTheme();
 
-	useEffect(
-		() => setTheme(isDarkMode ? "dark" : "light"),
-		[isDarkMode, setTheme],
-	);
+	useEffect(() => setTheme(isDarkMode ? "dark" : "light"), [isDarkMode, setTheme]);
 
 	function isTernaryDarkMode(value: string): value is TernaryDarkMode {
 		return ["light", "system", "dark"].includes(value);

@@ -13,7 +13,6 @@ import EventCallback from "@/components/hooks/EventCallback";
 import Hover from "@/components/hooks/Hover";
 import IntersectionObserver from "@/components/hooks/IntersectionObserver";
 import IsClient from "@/components/hooks/IsClient";
-import SetInterval from "@/components/hooks/SetInterval";
 import IsMounted from "@/components/hooks/IsMounted";
 import IsomorphicLayoutEffect from "@/components/hooks/IsomorphicLayoutEffect";
 import LocalStorage from "@/components/hooks/LocalStorage";
@@ -26,14 +25,13 @@ import Screen from "@/components/hooks/Screen";
 import Script from "@/components/hooks/Script";
 import { ScrollLock, ScrollLockModal } from "@/components/hooks/ScrollLock";
 import SessionStorage from "@/components/hooks/SessionStorage";
+import SetInterval from "@/components/hooks/SetInterval";
 import Step from "@/components/hooks/Step";
 import TernaryDarkMode from "@/components/hooks/TerneryDarkMode";
 import Timeout from "@/components/hooks/Timeout";
 import Toggle from "@/components/hooks/Toggle";
 import Unmount from "@/components/hooks/Unmount";
 import WindowSize from "@/components/hooks/WindowResize";
-
-
 
 export default function Home() {
 	return (
