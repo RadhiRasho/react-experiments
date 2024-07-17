@@ -5,24 +5,33 @@ import { Toaster } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "next-themes";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
 export default function Providers({
 	children,
 }: Readonly<{
-	children: React.ReactNode;
+	children: ReactNode;
 }>) {
 	const [queryClient] = useState(() => new QueryClient());
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+			<ThemeProvider
+				attribute="class"
+				defaultTheme="system"
+				enableSystem
+				disableTransitionOnChange
+			>
 				<NavMenu>
 					{children}
-					<Toaster duration={2500} position="bottom-left" closeButton />
+					<Toaster duration={2500} position="bottom-right" closeButton />
 				</NavMenu>
 			</ThemeProvider>
-			<ReactQueryDevtools initialIsOpen={false} />
+			<ReactQueryDevtools
+				buttonPosition="bottom-left"
+				position="left"
+				initialIsOpen={false}
+			/>
 		</QueryClientProvider>
 	);
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 export function ModeToggle() {
@@ -12,17 +12,19 @@ export function ModeToggle() {
 			variant="ghost"
 			size="icon"
 			aria-label="Toggle Dark Mode"
-			className="hover:bg-transparent text-red-500 flex justify-end"
+			className="hover:bg-transparent transition-all animate-in text-red-500 text-xs flex justify-end"
 		>
-			<SunIcon
-				width={20}
+			<Sun
+				strokeWidth={1.75}
+				size={30}
 				onClick={() => setTheme("dark")}
-				className="h-full rotate-0 scale-100 active:animate-in active:animate-rotate transition-all dark:-rotate-90 dark:scale-0"
+				className="rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0"
 			/>
-			<MoonIcon
-				width={20}
+			<Moon
+				strokeWidth={1.75}
+				size={30}
 				onClick={() => setTheme("light")}
-				className="h-full absolute rotate-90 scale-0 active:animate-rotate transition-all dark:rotate-0 dark:scale-100"
+				className="absolute rotate-100 scale-0 transition-transform dark:rotate-0 dark:scale-100"
 			/>
 		</Button>
 	);
