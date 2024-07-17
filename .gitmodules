@@ -1,0 +1,3 @@
+[submodule "server"]
+	path = server
+	url = git@github.com:radhirasho/simple-todo-server.git
