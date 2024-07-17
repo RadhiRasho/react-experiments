@@ -1,11 +1,33 @@
+import { useTheme } from "next-themes";
+import { useEffect } from "react";
 import { useTernaryDarkMode } from "usehooks-ts";
 
 type TernaryDarkMode = ReturnType<typeof useTernaryDarkMode>["ternaryDarkMode"];
 
 export default function TernaryDarkMode() {
-	const { isDarkMode, ternaryDarkMode, setTernaryDarkMode, toggleTernaryDarkMode } = useTernaryDarkMode({
+	const {
+		isDarkMode,
+		ternaryDarkMode,
+		setTernaryDarkMode,
+		toggleTernaryDarkMode,
+	} = useTernaryDarkMode({
 		initializeWithValue: false,
 	});
+	const { setTheme } = useTheme();
+
+	useEffect(
+		() => setTheme(isDarkMode ? "dark" : "light"),
+		[isDarkMode, setTheme],
+	);
+
+	function isTernaryDarkMode(value: string): value is TernaryDarkMode {
+		return ["light", "system", "dark"].includes(value);
+	}
+
+	function SetDarkMode(value: string) {
+		if (isTernaryDarkMode(value)) setTernaryDarkMode(value);
+		else console.error(`${value} is not a valid TernaryDarkMode`);
+	}
 
 	return (
 		<div className="flex flex-col gap-2 flex-grow-0 justify-start items-center">
@@ -28,7 +50,7 @@ export default function TernaryDarkMode() {
 				<br />
 				<select
 					className="w-32 bg-primary text-primary-foreground p-1 rounded-md"
-					onChange={(ev) => setTernaryDarkMode(ev.target.value as TernaryDarkMode)}
+					onChange={(ev) => SetDarkMode(ev.target.value)}
 					value={ternaryDarkMode}
 				>
 					<option value="light">light</option>

@@ -36,11 +36,11 @@ export function WithDebounce() {
   })
 
   return (
-    <div
-      ref={ref}
-      className='border border-[palevioletred] w-full resize overflow-auto max-w-full max-h-full grid place-content-center'
-    >
-      debounced: {width} x {height}
-    </div>
-  )
+			<div
+				ref={ref}
+				className="border border-[palevioletred] w-full resize overflow-auto min-w-1 min-h-1 h-full  grid place-content-center"
+			>
+				debounced: {width} x {height}
+			</div>
+		);
 }

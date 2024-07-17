@@ -28,6 +28,10 @@ import { ScrollLock, ScrollLockModal } from "@/components/hooks/ScrollLock";
 import SessionStorage from "@/components/hooks/SessionStorage";
 import Step from "@/components/hooks/Step";
 import TernaryDarkMode from "@/components/hooks/TerneryDarkMode";
+import Timeout from "@/components/hooks/Timeout";
+import Toggle from "@/components/hooks/Toggle";
+import Unmount from "@/components/hooks/Unmount";
+import WindowSize from "@/components/hooks/WindowResize";
 
 
 
@@ -124,6 +128,18 @@ export default function Home() {
 				</div>
 				<div>
 					<TernaryDarkMode />
+				</div>
+				<div>
+					<Timeout />
+				</div>
+				<div>
+					<Toggle />
+				</div>
+				<div>
+					<Unmount />
+				</div>
+				<div>
+					<WindowSize />
 				</div>
 				{/* Not a bit fan of this, but could be useful in the future */}
 				{/* <div className="border rounded-md p-4">

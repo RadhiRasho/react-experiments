@@ -16,9 +16,9 @@ export function ScrollLock() {
 	return (
 		<div className="flex flex-col gap-2 justify-start items-center max-w-full w-full">
 			<div id="scrollable" className="max-h-[25vh] overflow-y-auto w-full">
-				<div className={"bg-yellow-500 h-[10vh] w-full"} />
-				<div className={"bg-red-500 h-[10vh] w-full"} />
 				<div className={"bg-black h-[10vh] w-full"} />
+				<div className={"bg-red-500 h-[10vh] w-full"} />
+				<div className={"bg-yellow-500 h-[10vh] w-full"} />
 			</div>
 
 			<div className="flex flex-col gap-1 justify-center  items-baseline *:w-[8rem]">
