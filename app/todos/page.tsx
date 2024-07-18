@@ -26,14 +26,7 @@ export default function Todos() {
 					<div className="grid md:grid-cols-4 xs:auto-cols-auto grid-rows-auto gap-3 px-6 pb-4">
 						{data.length > 0 ? (
 							data.map((x) => {
-								return (
-									<TodoCard
-										updateAction={updateTodo}
-										deleteAction={deleteTodo}
-										key={x.taskId}
-										{...x}
-									/>
-								);
+								return <TodoCard updateAction={updateTodo} deleteAction={deleteTodo} key={x.taskId} {...x} />;
 							})
 						) : (
 							<div>Nothing To Do...</div>

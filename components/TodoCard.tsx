@@ -55,18 +55,10 @@ export function TodoCard({ updateAction, deleteAction, description, taskId, task
 						</CardContent>
 					</div>
 					<CardFooter className="flex justify-between">
-						<Button
-							title="Edit Task"
-							onClick={() => setEdit(!edit)}
-							variant="secondary"
-						>
+						<Button title="Edit Task" onClick={() => setEdit(!edit)} variant="secondary">
 							<Pencil2Icon className="text-xl" />
 						</Button>
-						<Button
-							title="Delete Task"
-							onClick={() => deleteTodo(taskId)}
-							variant="destructive"
-						>
+						<Button title="Delete Task" onClick={() => deleteTodo(taskId)} variant="destructive">
 							<TrashIcon className="text-xl" />
 						</Button>
 					</CardFooter>
