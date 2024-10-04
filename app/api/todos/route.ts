@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest): Promise<NextResponse<Todo[]>> {
 	const params = req.nextUrl.searchParams;
-	const limit = params.get("limit");
+	const limit = params.get("limit") ?? "0";
 	const offset = params.get("offset") ?? "0";
 
 	const res = await fetch(`${process.env.SERVER_URI}/todos?limit=${limit}&offset=${offset}`);
