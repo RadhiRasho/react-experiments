@@ -1,18 +1,31 @@
-import type { Todo } from "@/types/Todo";
 import { Pencil2Icon, TrashIcon } from "@radix-ui/react-icons";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { toast } from "sonner";
+import type { Todo } from "@/types/Todo";
 import { TodoCardForm } from "./TodoCardForm";
 import { Button } from "./ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "./ui/card";
 
 type TodoCardProps = {
 	deleteAction: (taskId: number) => Promise<string>;
 	updateAction: (values: Todo) => Promise<string>;
 } & Todo;
 
-export function TodoCard({ updateAction, deleteAction, description, taskId, taskName }: TodoCardProps) {
+export function TodoCard({
+	updateAction,
+	deleteAction,
+	description,
+	taskId,
+	taskName,
+}: TodoCardProps) {
 	const queryClient = useQueryClient();
 
 	const [edit, setEdit] = useState(false);
@@ -27,10 +40,6 @@ export function TodoCard({ updateAction, deleteAction, description, taskId, task
 		});
 	}
 
-	function cancelEdit() {
-		setEdit(false);
-	}
-
 	return (
 		<Card
 			key={taskId}
@@ -38,7 +47,7 @@ export function TodoCard({ updateAction, deleteAction, description, taskId, task
 		>
 			{edit ? (
 				<TodoCardForm
-					cancelEdit={cancelEdit}
+					cancelEdit={() => setEdit(false)}
 					taskId={taskId}
 					taskName={taskName}
 					description={description}
@@ -50,15 +59,25 @@ export function TodoCard({ updateAction, deleteAction, description, taskId, task
 						<CardHeader>
 							<CardTitle>{taskName}</CardTitle>
 						</CardHeader>
-						<CardContent>
-							<CardDescription>{description}</CardDescription>
+						<CardContent className="w-[100%]">
+							<CardDescription className="w-full break-words">
+								{description}
+							</CardDescription>
 						</CardContent>
 					</div>
 					<CardFooter className="flex justify-between">
-						<Button title="Edit Task" onClick={() => setEdit(!edit)} variant="secondary">
+						<Button
+							title="Edit Task"
+							onClick={() => setEdit(!edit)}
+							variant="secondary"
+						>
 							<Pencil2Icon className="text-xl" />
 						</Button>
-						<Button title="Delete Task" onClick={() => deleteTodo(taskId)} variant="destructive">
+						<Button
+							title="Delete Task"
+							onClick={() => deleteTodo(taskId)}
+							variant="destructive"
+						>
 							<TrashIcon className="text-xl" />
 						</Button>
 					</CardFooter>
