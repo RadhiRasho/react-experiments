@@ -30,7 +30,7 @@ export default function IsMounted() {
 	};
 
 	return (
-		<div className="flex flex-col gap-2 flex-grow-0 justify-start items-center w-1/2">
+		<div className="flex flex-col gap-2 grow-0 justify-start items-center w-1/2">
 			<button
 				className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md w-full"
 				type="button"

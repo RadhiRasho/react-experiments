@@ -36,7 +36,7 @@ import WindowSize from "@/components/hooks/WindowResize";
 export default function Home() {
 	return (
 		<main className="min-h-screen items-center justify-evenly p-4">
-			<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xs:auto-cols-auto grid-rows-auto gap-3 px-6 pb-4 *:flex *:justify-center *:items-center *:border *:dark:border-gray-50 *:border-gray-800 *:rounded-md *:p-4">
+			<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xs:auto-cols-auto grid-rows-auto gap-3 px-6 pb-4 *:flex *:justify-center *:items-center *:border dark:*:border-gray-50 *:border-gray-800 *:rounded-md *:p-4">
 				<div>
 					<BooleanHook />
 				</div>

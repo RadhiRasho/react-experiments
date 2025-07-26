@@ -16,16 +16,16 @@ export default function CountDown() {
 	};
 
 	return (
-		<div className="flex flex-col gap-2 flex-grow-0 justify-start items-center">
+		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
 			<p>Count: {count}</p>
 
 			<input
-				className="border rounded-md p-2 text-primary w-[8rem]"
+				className="border rounded-md p-2 text-primary w-32"
 				type="number"
 				value={intervalValue}
 				onChange={handleChangeIntervalValue}
 			/>
-			<div className="flex flex-col gap-1 justify-center items-baseline *:w-[8rem]">
+			<div className="flex flex-col gap-1 justify-center items-baseline *:w-32">
 				<button
 					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
 					type="button"

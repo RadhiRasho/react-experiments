@@ -21,7 +21,7 @@ export function ScrollLock() {
 				<div className={"bg-yellow-500 h-[10vh] w-full"} />
 			</div>
 
-			<div className="flex flex-col gap-1 justify-center  items-baseline *:w-[8rem]">
+			<div className="flex flex-col gap-1 justify-center  items-baseline *:w-32">
 				<button
 					type="button"
 					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"

@@ -22,7 +22,7 @@ export default function TernaryDarkMode() {
 	}
 
 	return (
-		<div className="flex flex-col gap-2 flex-grow-0 justify-start items-center">
+		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
 			<div>
 				<p>Current Theme: {isDarkMode ? "dark" : "light"}</p>
 				<p>Ternary Mode: {ternaryDarkMode}</p>

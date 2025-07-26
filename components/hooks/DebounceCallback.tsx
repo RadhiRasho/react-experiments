@@ -8,7 +8,7 @@ export default function DebounceCallback() {
 	const debounced = useDebounceCallback(setValue, 500);
 
 	return (
-		<div className="flex flex-col gap-2 flex-grow-0 justify-start items-center">
+		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
 			<p>Debounced value: {value}</p>
 
 			<input

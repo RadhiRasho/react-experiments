@@ -23,7 +23,7 @@ export default function SetInterval() {
 	};
 
 	return (
-		<div className="flex flex-col gap-2 flex-grow-0 justify-start items-center">
+		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
 			<h1>{count}</h1>
 			<button
 				className="bg-primary text-primary-foreground p-1 rounded-md w-full"

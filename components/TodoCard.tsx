@@ -59,7 +59,7 @@ export function TodoCard({
 						<CardHeader>
 							<CardTitle>{taskName}</CardTitle>
 						</CardHeader>
-						<CardContent className="w-[100%]">
+						<CardContent className="w-full">
 							<CardDescription className="w-full break-words">
 								{description}
 							</CardDescription>

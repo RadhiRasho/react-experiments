@@ -22,7 +22,7 @@ export default function MapHook() {
 	};
 
 	return (
-		<div className="flex flex-col gap-2 flex-grow-0 justify-start items-center">
+		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
 			<pre>
 				Map (
 				{Array.from(map.entries()).map(([key, value]) => (
@@ -30,7 +30,7 @@ export default function MapHook() {
 				))}
 				<br />)
 			</pre>
-			<div className="grid grid-cols-2 gap-2 justify-center items-baseline *:w-[8rem]">
+			<div className="grid grid-cols-2 gap-2 justify-center items-baseline *:w-32">
 				<button
 					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
 					type="button"

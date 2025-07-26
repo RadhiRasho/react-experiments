@@ -4,7 +4,7 @@ export default function DebounceValue({ defaultValue = "John" }) {
 	const [debouncedValue, setValue] = useDebounceValue(defaultValue, 500);
 
 	return (
-		<div className="flex flex-col gap-2 flex-grow-0 justify-start items-center">
+		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
 			<p>Debounced value: {debouncedValue}</p>
 
 			<input
