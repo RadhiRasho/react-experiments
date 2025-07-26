@@ -7,7 +7,7 @@ export default function Hover() {
 	const isHover = useHover(hoverRef);
 
 	return (
-		<div className="flex justify-center items-center w-full h-full" ref={hoverRef}>
+		<div className="flex h-full w-full items-center justify-center" ref={hoverRef}>
 			{`The current div is ${isHover ? "hovered" : "unhovered"}`}
 		</div>
 	);

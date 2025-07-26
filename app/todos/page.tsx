@@ -1,9 +1,9 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
 import { TodoCard } from "@/components/TodoCard";
 import { TodoForm } from "@/components/TodoForm";
 import type { Todo } from "@/types/Todo";
-import { useQuery } from "@tanstack/react-query";
 import { createTodo, deleteTodo, getTodos, updateTodo } from "./action";
 
 export default function Todos() {
@@ -14,16 +14,16 @@ export default function Todos() {
 	});
 
 	return (
-		<main className="flex min-h-screen md:flex-row md:items-start  xs:flex-col xs:items-center justify-between gap-1 md:px-6 pt-6">
-			<div className="md:w-2/12 xs:w-full">
+		<main className="flex min-h-screen xs:flex-col xs:items-center justify-between gap-1 pt-6 md:flex-row md:items-start md:px-6">
+			<div className="xs:w-full md:w-2/12">
 				<TodoForm action={createTodo} />
 			</div>
 			<br />
-			<div className="md:w-10/12 w-full">
+			<div className="w-full md:w-10/12">
 				{isPending && <div>Loading...</div>}
 				{isError && <div>{error?.message}</div>}
 				{isSuccess && (
-					<div className="grid md:grid-cols-4 xs:auto-cols-auto grid-rows-auto gap-3 px-6 pb-4">
+					<div className="grid xs:auto-cols-auto grid-rows-auto gap-3 px-6 pb-4 md:grid-cols-4">
 						{data.length > 0 ? (
 							data.map((x) => {
 								return <TodoCard updateAction={updateTodo} deleteAction={deleteTodo} key={x.taskId} {...x} />;

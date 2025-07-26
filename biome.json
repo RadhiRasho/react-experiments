@@ -13,6 +13,16 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
+			"nursery": {
+				"useSortedClasses": {
+					"fix": "unsafe",
+					"level": "warn",
+					"options": {
+						"attributes": ["class", "className"],
+						"functions": ["clsx"]
+					}
+				}
+			},
 			"style": {
 				"recommended": true,
 				"noParameterAssign": "error",
@@ -29,6 +39,14 @@
 			"complexity": {
 				"recommended": true
 			}
+		}
+	},
+	"css": {
+		"formatter": {
+			"enabled": true
+		},
+		"linter": {
+			"enabled": true
 		}
 	},
 	"formatter": {

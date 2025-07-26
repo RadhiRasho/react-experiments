@@ -9,36 +9,36 @@ export default function Toggle() {
 	};
 
 	return (
-		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
+		<div className="flex grow-0 flex-col items-center justify-start gap-2">
 			<p>
 				Value is{" "}
-				<code className="bg-red-500 dark:bg-green-500 text-primary-foreground p-1 rounded-md">{value.toString()}</code>
+				<code className="rounded-md bg-red-500 p-1 text-primary-foreground dark:bg-green-500">{value.toString()}</code>
 			</p>
-			<div className="flex flex-col gap-1 justify-center items-baseline *:w-32">
+			<div className="flex flex-col items-baseline justify-center gap-1 *:w-32">
 				<button
 					type="button"
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					onClick={() => setValue(true)}
 				>
 					set true
 				</button>
 				<button
 					type="button"
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					onClick={() => setValue(false)}
 				>
 					set false
 				</button>
 				<button
 					type="button"
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					onClick={toggle}
 				>
 					toggle
 				</button>
 				<button
 					type="button"
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					onClick={customToggle}
 				>
 					custom toggle

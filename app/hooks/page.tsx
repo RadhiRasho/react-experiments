@@ -1,42 +1,42 @@
 "use client";
 
-import BooleanHook from "@/components/hooks/BooleanHook";
-import ClickAnywhere from "@/components/hooks/ClickAnywhere";
-import CopyToClipboard from "@/components/hooks/CopyToClipboard";
-import CountDown from "@/components/hooks/CountDown";
-import Counter from "@/components/hooks/Counter";
-import DarkMode from "@/components/hooks/DarkMode";
-import DebounceCallback from "@/components/hooks/DebounceCallback";
-import DebounceValue from "@/components/hooks/DebounceValue";
-import DocumentTitle from "@/components/hooks/DocumentTitle";
-import EventCallback from "@/components/hooks/EventCallback";
-import Hover from "@/components/hooks/Hover";
-import IntersectionObserver from "@/components/hooks/IntersectionObserver";
-import IsClient from "@/components/hooks/IsClient";
-import IsMounted from "@/components/hooks/IsMounted";
-import IsomorphicLayoutEffect from "@/components/hooks/IsomorphicLayoutEffect";
-import LocalStorage from "@/components/hooks/LocalStorage";
-import MapHook from "@/components/hooks/MapHook";
-import MediaQuery from "@/components/hooks/MediaQuery";
-import OnClickOutside from "@/components/hooks/OnClickOutside";
-import ReadLocalStorage from "@/components/hooks/ReadLocalStorage";
-import ResizeObserver, { WithDebounce } from "@/components/hooks/ResizeObserver";
-import Screen from "@/components/hooks/Screen";
-import Script from "@/components/hooks/Script";
-import { ScrollLock, ScrollLockModal } from "@/components/hooks/ScrollLock";
-import SessionStorage from "@/components/hooks/SessionStorage";
-import SetInterval from "@/components/hooks/SetInterval";
-import Step from "@/components/hooks/Step";
-import TernaryDarkMode from "@/components/hooks/TerneryDarkMode";
-import Timeout from "@/components/hooks/Timeout";
-import Toggle from "@/components/hooks/Toggle";
-import Unmount from "@/components/hooks/Unmount";
-import WindowSize from "@/components/hooks/WindowResize";
+import BooleanHook from "@/app/hooks/components/BooleanHook";
+import ClickAnywhere from "@/app/hooks/components/ClickAnywhere";
+import CopyToClipboard from "@/app/hooks/components/CopyToClipboard";
+import CountDown from "@/app/hooks/components/CountDown";
+import Counter from "@/app/hooks/components/Counter";
+import DarkMode from "@/app/hooks/components/DarkMode";
+import DebounceCallback from "@/app/hooks/components/DebounceCallback";
+import DebounceValue from "@/app/hooks/components/DebounceValue";
+import DocumentTitle from "@/app/hooks/components/DocumentTitle";
+import EventCallback from "@/app/hooks/components/EventCallback";
+import Hover from "@/app/hooks/components/Hover";
+import IntersectionObserver from "@/app/hooks/components/IntersectionObserver";
+import IsClient from "@/app/hooks/components/IsClient";
+import IsMounted from "@/app/hooks/components/IsMounted";
+import IsomorphicLayoutEffect from "@/app/hooks/components/IsomorphicLayoutEffect";
+import LocalStorage from "@/app/hooks/components/LocalStorage";
+import MapHook from "@/app/hooks/components/MapHook";
+import MediaQuery from "@/app/hooks/components/MediaQuery";
+import OnClickOutside from "@/app/hooks/components/OnClickOutside";
+import ReadLocalStorage from "@/app/hooks/components/ReadLocalStorage";
+import ResizeObserver, { WithDebounce } from "@/app/hooks/components/ResizeObserver";
+import Screen from "@/app/hooks/components/Screen";
+import Script from "@/app/hooks/components/Script";
+import { ScrollLock } from "@/app/hooks/components/ScrollLock";
+import SessionStorage from "@/app/hooks/components/SessionStorage";
+import SetInterval from "@/app/hooks/components/SetInterval";
+import Step from "@/app/hooks/components/Step";
+import TernaryDarkMode from "@/app/hooks/components/TerneryDarkMode";
+import Timeout from "@/app/hooks/components/Timeout";
+import Toggle from "@/app/hooks/components/Toggle";
+import Unmount from "@/app/hooks/components/Unmount";
+import WindowSize from "@/app/hooks/components/WindowResize";
 
 export default function Home() {
 	return (
 		<main className="min-h-screen items-center justify-evenly p-4">
-			<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xs:auto-cols-auto grid-rows-auto gap-3 px-6 pb-4 *:flex *:justify-center *:items-center *:border dark:*:border-gray-50 *:border-gray-800 *:rounded-md *:p-4">
+			<div className="grid xs:auto-cols-auto grid-rows-auto gap-3 px-6 pb-4 *:flex *:items-center *:justify-center *:rounded-md *:border *:border-gray-800 *:p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 dark:*:border-gray-50">
 				<div>
 					<BooleanHook />
 				</div>
@@ -139,7 +139,7 @@ export default function Home() {
 				<div>
 					<WindowSize />
 				</div>
-				{/* Not a bit fan of this, but could be useful in the future */}
+				{/* Not a big fan of this, but could be useful in the future */}
 				{/* <div className="border rounded-md p-4">
 					<EventListener />
 				</div> */}

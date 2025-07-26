@@ -15,7 +15,7 @@ export default function ResizeObserver() {
 	});
 
 	return (
-		<div ref={ref} className="border border-[palevioletred] w-full h-full grid place-content-center">
+		<div ref={ref} className="grid h-full w-full place-content-center border border-[palevioletred]">
 			{width} x {height}
 		</div>
 	);
@@ -38,7 +38,7 @@ export function WithDebounce() {
 	return (
 		<div
 			ref={ref}
-			className="border border-[palevioletred] w-full resize overflow-auto min-w-1 min-h-1 h-full  grid place-content-center"
+			className="grid h-full min-h-1 w-full min-w-1 resize place-content-center overflow-auto border border-[palevioletred]"
 		>
 			debounced: {width} x {height}
 		</div>

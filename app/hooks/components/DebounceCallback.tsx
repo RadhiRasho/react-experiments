@@ -8,11 +8,11 @@ export default function DebounceCallback() {
 	const debounced = useDebounceCallback(setValue, 500);
 
 	return (
-		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
+		<div className="flex grow-0 flex-col items-center justify-start gap-2">
 			<p>Debounced value: {value}</p>
 
 			<input
-				className="rounded-md border p-2 border-gray-500 dark:border-gray-50  text-primary"
+				className="rounded-md border border-gray-500 p-2 text-primary dark:border-gray-50"
 				type="text"
 				defaultValue={value}
 				onChange={(event) => debounced(event.target.value)}

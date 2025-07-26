@@ -12,30 +12,30 @@ export default function MediaQuery() {
 	const isExtraLargeDevice = useMediaQuery("only screen and (min-width : 1201px)", { initializeWithValue: false });
 
 	return (
-		<div className="grid grid-cols-2 gap-10 justify-between ">
-			<div className="flex flex-col gap-10 items-center">
+		<div className="grid grid-cols-2 justify-between gap-10 ">
+			<div className="flex flex-col items-center gap-10">
 				<figure
-					className={`flex justify-center items-center flex-col ${isSmallDevice && "dark:text-green-500 text-red-500"}`}
+					className={`flex flex-col items-center justify-center ${isSmallDevice && "text-red-500 dark:text-green-500"}`}
 				>
 					<Phone />
 					<figcaption>Small</figcaption>
 				</figure>
 				<figure
-					className={`flex justify-center items-center flex-col ${isMediumDevice && "dark:text-green-500 text-red-500"}`}
+					className={`flex flex-col items-center justify-center ${isMediumDevice && "text-red-500 dark:text-green-500"}`}
 				>
 					<Tablet />
 					<figcaption>Medium</figcaption>
 				</figure>
 			</div>
-			<div className="flex flex-col gap-10 items-center">
+			<div className="flex flex-col items-center gap-10">
 				<figure
-					className={`flex justify-center items-center flex-col ${isLargeDevice && "dark:text-green-500 text-red-500"}`}
+					className={`flex flex-col items-center justify-center ${isLargeDevice && "text-red-500 dark:text-green-500"}`}
 				>
 					<Laptop />
 					<figcaption>Large</figcaption>
 				</figure>
 				<figure
-					className={`flex justify-center items-center flex-col ${isExtraLargeDevice && "dark:text-green-500 text-red-500"}`}
+					className={`flex flex-col items-center justify-center ${isExtraLargeDevice && "text-red-500 dark:text-green-500"}`}
 				>
 					<Monitor />
 					<figcaption>Extra Large</figcaption>

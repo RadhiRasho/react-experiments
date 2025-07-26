@@ -14,17 +14,17 @@ export function ScrollLock() {
 	});
 
 	return (
-		<div className="flex flex-col gap-2 justify-start items-center max-w-full w-full">
-			<div id="scrollable" className="max-h-[25vh] overflow-y-auto w-full">
-				<div className={"bg-black h-[10vh] w-full"} />
-				<div className={"bg-red-500 h-[10vh] w-full"} />
-				<div className={"bg-yellow-500 h-[10vh] w-full"} />
+		<div className="flex w-full max-w-full flex-col items-center justify-start gap-2">
+			<div id="scrollable" className="max-h-[25vh] w-full overflow-y-auto">
+				<div className={"h-[10vh] w-full bg-black"} />
+				<div className={"h-[10vh] w-full bg-red-500"} />
+				<div className={"h-[10vh] w-full bg-yellow-500"} />
 			</div>
 
-			<div className="flex flex-col gap-1 justify-center  items-baseline *:w-32">
+			<div className="flex flex-col items-baseline justify-center gap-1 *:w-32">
 				<button
 					type="button"
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					onClick={lock}
 					disabled={isLocked}
 				>
@@ -32,7 +32,7 @@ export function ScrollLock() {
 				</button>
 				<button
 					type="button"
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					onClick={unlock}
 					disabled={!isLocked}
 				>

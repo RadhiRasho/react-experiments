@@ -22,26 +22,26 @@ export default function TernaryDarkMode() {
 	}
 
 	return (
-		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
+		<div className="flex grow-0 flex-col items-center justify-start gap-2">
 			<div>
 				<p>Current Theme: {isDarkMode ? "dark" : "light"}</p>
 				<p>Ternary Mode: {ternaryDarkMode}</p>
 			</div>
-			<div className="flex flex-col gap-2 justify-center items-center">
+			<div className="flex flex-col items-center justify-center gap-2">
 				Toggle between three modes
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md w-48"
+					className="w-48 rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={toggleTernaryDarkMode}
 				>
 					Toggle from {ternaryDarkMode}
 				</button>
 			</div>
-			<div className="flex flex-col justify-center items-center">
+			<div className="flex flex-col items-center justify-center">
 				Select a mode
 				<br />
 				<select
-					className="w-32 bg-primary text-primary-foreground p-1 rounded-md"
+					className="w-32 rounded-md bg-primary p-1 text-primary-foreground"
 					onChange={(ev) => SetDarkMode(ev.target.value)}
 					value={ternaryDarkMode}
 				>

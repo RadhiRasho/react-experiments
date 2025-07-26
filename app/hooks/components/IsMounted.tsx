@@ -16,7 +16,7 @@ function Child() {
 	}, [isMounted]);
 
 	return (
-		<div className="dark:bg-green-500 bg-red-500 text-primary-foreground w-full flex justify-center rounded-md">
+		<div className="flex w-full justify-center rounded-md bg-red-500 text-primary-foreground dark:bg-green-500">
 			{data}
 		</div>
 	);
@@ -30,9 +30,9 @@ export default function IsMounted() {
 	};
 
 	return (
-		<div className="flex flex-col gap-2 grow-0 justify-start items-center w-1/2">
+		<div className="flex w-1/2 grow-0 flex-col items-center justify-start gap-2">
 			<button
-				className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md w-full"
+				className="w-full rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 				type="button"
 				onClick={toggleVisibility}
 			>

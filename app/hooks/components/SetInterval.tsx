@@ -1,6 +1,5 @@
-import { useState } from "react";
-
 import type { ChangeEvent } from "react";
+import { useState } from "react";
 
 import { useInterval } from "usehooks-ts";
 
@@ -23,19 +22,19 @@ export default function SetInterval() {
 	};
 
 	return (
-		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
+		<div className="flex grow-0 flex-col items-center justify-start gap-2">
 			<h1>{count}</h1>
 			<button
-				className="bg-primary text-primary-foreground p-1 rounded-md w-full"
+				className="w-full rounded-md bg-primary p-1 text-primary-foreground"
 				type="button"
 				onClick={() => setPlaying(!isPlaying)}
 			>
 				{isPlaying ? "pause" : "play"}
 			</button>
-			<div className="flex gap-1 justify-center items-baseline">
+			<div className="flex items-baseline justify-center gap-1">
 				<label htmlFor="delay">Delay: </label>
 				<input
-					className="rounded-md border border-gray-500 w-24 dark:border-gray-50 p-2 text-primary"
+					className="w-24 rounded-md border border-gray-500 p-2 text-primary dark:border-gray-50"
 					type="number"
 					name="delay"
 					onChange={handleChange}

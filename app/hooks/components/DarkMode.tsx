@@ -11,25 +11,25 @@ export default function DarkMode() {
 	useEffect(() => setTheme(isDarkMode ? "dark" : "light"), [isDarkMode, setTheme]);
 
 	return (
-		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
+		<div className="flex grow-0 flex-col items-center justify-start gap-2">
 			<div>Current theme: {isDarkMode ? "dark" : "light"}</div>
-			<div className="flex flex-col gap-1 justify-center items-baseline *:w-32">
+			<div className="flex flex-col items-baseline justify-center gap-1 *:w-32">
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={enable}
 				>
 					Enable
 				</button>
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={disable}
 				>
 					Disable
 				</button>
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={toggle}
 				>

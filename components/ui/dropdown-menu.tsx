@@ -2,10 +2,9 @@
 
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { CheckIcon, ChevronRightIcon, DotFilledIcon } from "@radix-ui/react-icons";
-
-import { cn } from "@/lib/utils";
-import { forwardRef } from "react";
 import type { ComponentPropsWithoutRef, ElementRef, HTMLAttributes } from "react";
+import { forwardRef } from "react";
+import { cn } from "@/lib/utils";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 
@@ -28,7 +27,7 @@ const DropdownMenuSubTrigger = forwardRef<
 	<DropdownMenuPrimitive.SubTrigger
 		ref={ref}
 		className={cn(
-			"flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden dark:data-[state=open]:bg-slate-800 dark:focus:bg-slate-800 data-[state=open]:bg-slate-100 focus:bg-slate-100",
+			"flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-slate-100 data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800 dark:focus:bg-slate-800",
 			inset && "pl-8",
 			className,
 		)}
@@ -83,7 +82,7 @@ const DropdownMenuItem = forwardRef<
 	<DropdownMenuPrimitive.Item
 		ref={ref}
 		className={cn(
-			"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden transition-colors data-disabled:pointer-events-none dark:focus:bg-slate-800 focus:bg-slate-100 dark:focus:text-slate-50 focus:text-slate-900 data-disabled:opacity-50",
+			"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden transition-colors focus:bg-slate-100 focus:text-slate-900 data-disabled:pointer-events-none data-disabled:opacity-50 dark:focus:bg-slate-800 dark:focus:text-slate-50",
 			inset && "pl-8",
 			className,
 		)}
@@ -99,7 +98,7 @@ const DropdownMenuCheckboxItem = forwardRef<
 	<DropdownMenuPrimitive.CheckboxItem
 		ref={ref}
 		className={cn(
-			"relative flex cursor-default select-none items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden transition-colors data-disabled:pointer-events-none dark:focus:bg-slate-800 focus:bg-slate-100 dark:focus:text-slate-50 focus:text-slate-900 data-disabled:opacity-50",
+			"relative flex cursor-default select-none items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden transition-colors focus:bg-slate-100 focus:text-slate-900 data-disabled:pointer-events-none data-disabled:opacity-50 dark:focus:bg-slate-800 dark:focus:text-slate-50",
 			className,
 		)}
 		checked={checked}
@@ -122,7 +121,7 @@ const DropdownMenuRadioItem = forwardRef<
 	<DropdownMenuPrimitive.RadioItem
 		ref={ref}
 		className={cn(
-			"relative flex cursor-default select-none items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden transition-colors data-disabled:pointer-events-none dark:focus:bg-slate-800 focus:bg-slate-100 dark:focus:text-slate-50 focus:text-slate-900 data-disabled:opacity-50",
+			"relative flex cursor-default select-none items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden transition-colors focus:bg-slate-100 focus:text-slate-900 data-disabled:pointer-events-none data-disabled:opacity-50 dark:focus:bg-slate-800 dark:focus:text-slate-50",
 			className,
 		)}
 		{...props}

@@ -20,7 +20,7 @@ export default function Script() {
 	}, [status]);
 
 	return (
-		<div className="flex flex-col justify-center items-center">
+		<div className="flex flex-col items-center justify-center">
 			<p>Current Status: {status}</p>
 
 			{status === "ready" && <p>You can use the script here.</p>}

@@ -7,7 +7,7 @@ export default function Screen() {
 		<div>
 			The current window dimensions are:
 			<br />
-			<ul className="grid grid-cols-2 gap-2 justify-center items-center">
+			<ul className="grid grid-cols-2 items-center justify-center gap-2">
 				<li>Width: {screen?.width}</li>
 				<li>Height: {screen?.height}</li>
 				<li>Availwidth: {screen?.availWidth}</li>

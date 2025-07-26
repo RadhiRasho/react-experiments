@@ -1,6 +1,5 @@
-import { useState } from "react";
-
 import type { ChangeEvent } from "react";
+import { useState } from "react";
 
 import { useCountdown } from "usehooks-ts";
 
@@ -16,32 +15,32 @@ export default function CountDown() {
 	};
 
 	return (
-		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
+		<div className="flex grow-0 flex-col items-center justify-start gap-2">
 			<p>Count: {count}</p>
 
 			<input
-				className="border rounded-md p-2 text-primary w-32"
+				className="w-32 rounded-md border p-2 text-primary"
 				type="number"
 				value={intervalValue}
 				onChange={handleChangeIntervalValue}
 			/>
-			<div className="flex flex-col gap-1 justify-center items-baseline *:w-32">
+			<div className="flex flex-col items-baseline justify-center gap-1 *:w-32">
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={startCountdown}
 				>
 					start
 				</button>
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={stopCountdown}
 				>
 					stop
 				</button>
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={resetCountdown}
 				>

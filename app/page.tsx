@@ -2,41 +2,39 @@
 
 import { queryOptions, useQueries, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import type { RandomUser, Repo } from "@/types/RandomUser";
 
 export default function Home() {
 	const [count, setCount] = useState(1);
 
-	const { isPending, error, data, isSuccess, isError, refetch } =
-		useQuery<Repo>({
-			queryKey: ["repoData", count], // Query Keys are similar to Dependency Arrays in useEffect
-			queryFn: async ({ queryKey }): Promise<Repo> => {
-				const [_key, countKey] = queryKey as [string, number];
+	const { isPending, error, data, isSuccess, isError, refetch } = useQuery<Repo>({
+		queryKey: ["repoData", count], // Query Keys are similar to Dependency Arrays in useEffect
+		queryFn: async ({ queryKey }): Promise<Repo> => {
+			const [_key, countKey] = queryKey as [string, number];
 
-				if (countKey > 20) {
-					throw new Error("This is an error");
-				}
+			if (countKey > 20) {
+				throw new Error("This is an error");
+			}
 
-				if (countKey > 15) {
-					return Promise.reject(
-						new Error("This is an error but from a promise"),
-					);
-				}
+			if (countKey > 15) {
+				return Promise.reject(new Error("This is an error but from a promise"));
+			}
 
-				const res = await fetch("https://api.github.com/repos/TanStack/query");
+			const res = await fetch("https://api.github.com/repos/TanStack/query");
 
-				if (!res.ok) {
-					throw new Error("Network response was not ok");
-				}
+			if (!res.ok) {
+				throw new Error("Network response was not ok");
+			}
 
-				return res.json();
-			},
-			staleTime: 3000, // This is the time in ms that the query will be considered fresh
-			gcTime: 3000, // This is the time in ms that the query will be garbage collected
-			// This is a way to disable the query until it's dependencies match a certain criteria
-			// can also be disabled in this case due to refetch
-			enabled: count <= 16,
-		});
+			return res.json();
+		},
+		staleTime: 3000, // This is the time in ms that the query will be considered fresh
+		gcTime: 3000, // This is the time in ms that the query will be garbage collected
+		// This is a way to disable the query until it's dependencies match a certain criteria
+		// can also be disabled in this case due to refetch
+		enabled: count <= 16,
+	});
 
 	const { data: names } = useQuery({
 		queryKey: ["user", count],
@@ -52,61 +50,46 @@ export default function Home() {
 	});
 
 	const users = useQueries({
-		queries: names
-			? names.map((name) => {
-				return queryOptions({
-					queryKey: ["user", name],
-					queryFn: async () => name,
-					refetchOnWindowFocus: false,
-					staleTime: 3000,
-					gcTime: 3000,
-				});
-			})
-			: [],
+		queries: (names || []).map((name) => {
+			return queryOptions({
+				queryKey: ["user", name],
+				queryFn: async () => name,
+				refetchOnWindowFocus: false,
+				staleTime: 3000,
+				gcTime: 3000,
+			});
+		})
 	});
 
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between p-24">
-			<div className="flex justify-center flex-col items-center">
-				<button
-					type="button"
-					className="h-10 w-32 rounded-lg border border-white"
-					onClick={() => refetch()}
-				>
+			<div className="flex flex-col items-center justify-center">
+				<Button className="h-10 w-32 rounded-lg border border-white" onClick={() => refetch()}>
 					Refetch Repo
-				</button>
+				</Button>
 				{isPending && <span className="text-blue-500">Loading...</span>}
-				{isError && (
-					<span className="text-red-500">Error: {error.message}</span>
-				)}
+				{isError && <span className="text-red-500">Error: {error.message}</span>}
 				{isSuccess && (
 					<div>
 						<h1>{data.name}</h1>
 						<p>{data.description}</p>
-						<strong>👀 {data.subscribers_count}</strong>{" "}
-						<strong>✨ {data.stargazers_count}</strong>{" "}
+						<strong>👀 {data.subscribers_count}</strong> <strong>✨ {data.stargazers_count}</strong>{" "}
 						<strong>🍴 {data.forks_count}</strong>
 					</div>
 				)}
 			</div>
 			<div>
 				{users.length > 0 && (
-					<div
-						className={`overflow-hidden text-center${users?.length > 16 ? "hover:overflow-y-scroll" : ""}h-96 w-56`}
-					>
-						{users?.length > 0 &&
-							users?.map((user, i) => (
-								<div key={`user-${i * 2}`}>{user.data}</div>
-							))}
+					<div className={`overflow-hidden text-center${users?.length > 16 ? "hover:overflow-y-scroll" : ""}h-96 w-56`}>
+						{users?.length > 0 && users?.map((user, i) => <div key={`user-${i * 2}`}>{user.data}</div>)}
 					</div>
 				)}
-				<button
-					type="button"
+				<Button
 					className="h-10 w-32 rounded-lg border border-white active:translate-y-1 active:animate-in"
 					onClick={() => setCount((c) => c + 1)}
 				>
 					Increment
-				</button>
+				</Button>
 			</div>
 		</main>
 	);

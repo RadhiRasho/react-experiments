@@ -22,7 +22,7 @@ export default function OnClickOutside() {
 			type="button"
 			ref={ref}
 			onClick={handleClickInside}
-			className="size-full bg-primary hover:bg-primary/90 text-primary-foreground"
+			className="size-full bg-primary text-primary-foreground hover:bg-primary/90"
 		>
 			Click Me
 		</button>

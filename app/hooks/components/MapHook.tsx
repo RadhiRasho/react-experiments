@@ -22,7 +22,7 @@ export default function MapHook() {
 	};
 
 	return (
-		<div className="flex flex-col gap-2 grow-0 justify-start items-center">
+		<div className="flex grow-0 flex-col items-center justify-start gap-2">
 			<pre>
 				Map (
 				{Array.from(map.entries()).map(([key, value]) => (
@@ -30,30 +30,30 @@ export default function MapHook() {
 				))}
 				<br />)
 			</pre>
-			<div className="grid grid-cols-2 gap-2 justify-center items-baseline *:w-32">
+			<div className="grid grid-cols-2 items-baseline justify-center gap-2 *:w-32">
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={set}
 				>
 					Add
 				</button>
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={reset}
 				>
 					Reset
 				</button>
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={setAll}
 				>
 					Set new data
 				</button>
 				<button
-					className="bg-primary text-primary-foreground p-1 hover:bg-primary/85 rounded-md"
+					className="rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 					type="button"
 					onClick={remove}
 					disabled={!map.get("hello")}

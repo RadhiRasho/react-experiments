@@ -1,7 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import type { Todo } from "@/types/Todo";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Cross1Icon, SymbolIcon as LoadingIcon, PaperPlaneIcon } from "@radix-ui/react-icons";
 import { useQueryClient } from "@tanstack/react-query";
@@ -9,6 +5,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import type { Todo } from "@/types/Todo";
 import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Textarea } from "./ui/textarea";
 
@@ -81,7 +81,7 @@ export function TodoCardForm({ cancelEdit, action, taskId, taskName, description
 									<FormItem>
 										<FormControl>
 											<Textarea
-												className="pb-0 text-slate-400 resize-y min-h-fit max-h-96"
+												className="max-h-96 min-h-fit resize-y pb-0 text-slate-400"
 												placeholder="Really Fun Thing"
 												{...field}
 												rows={10}

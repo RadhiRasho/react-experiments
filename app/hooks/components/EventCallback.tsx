@@ -8,7 +8,7 @@ export default function EventCallback() {
 
 	return (
 		<button
-			className="bg-primary hover:bg-primary/85 text-primary-foreground p-1 rounded-md w-6/12"
+			className="w-6/12 rounded-md bg-primary p-1 text-primary-foreground hover:bg-primary/85"
 			type="button"
 			onClick={handleClick}
 		>
