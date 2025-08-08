@@ -1,6 +1,7 @@
 "use client";
 
 import { queryOptions, useQueries, useQuery } from "@tanstack/react-query";
+import clsx from "clsx";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { RandomUser, Repo } from "@/types/RandomUser";
@@ -8,7 +9,14 @@ import type { RandomUser, Repo } from "@/types/RandomUser";
 export default function Home() {
 	const [count, setCount] = useState(1);
 
-	const { isPending, error, data, isSuccess, isError, refetch } = useQuery<Repo>({
+	const {
+		isPending,
+		error,
+		data,
+		isSuccess,
+		isError,
+		refetch: repoRefresh,
+	} = useQuery<Repo>({
 		queryKey: ["repoData", count], // Query Keys are similar to Dependency Arrays in useEffect
 		queryFn: async ({ queryKey }): Promise<Repo> => {
 			const [_key, countKey] = queryKey as [string, number];
@@ -34,6 +42,7 @@ export default function Home() {
 		// This is a way to disable the query until it's dependencies match a certain criteria
 		// can also be disabled in this case due to refetch
 		enabled: count <= 16,
+		retry: 1,
 	});
 
 	const { data: names } = useQuery({
@@ -58,13 +67,13 @@ export default function Home() {
 				staleTime: 3000,
 				gcTime: 3000,
 			});
-		})
+		}),
 	});
 
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between p-24">
 			<div className="flex flex-col items-center justify-center">
-				<Button className="h-10 w-32 rounded-lg border border-white" onClick={() => refetch()}>
+				<Button className="h-10 w-32 rounded-lg border border-white" onClick={() => repoRefresh()}>
 					Refetch Repo
 				</Button>
 				{isPending && <span className="text-blue-500">Loading...</span>}
@@ -80,7 +89,9 @@ export default function Home() {
 			</div>
 			<div>
 				{users.length > 0 && (
-					<div className={`overflow-hidden text-center${users?.length > 16 ? "hover:overflow-y-scroll" : ""}h-96 w-56`}>
+					<div
+						className={clsx("h-96 w-56 overflow-hidden text-center", { "hover:overflow-y-scroll": users?.length > 16 })}
+					>
 						{users?.length > 0 && users?.map((user, i) => <div key={`user-${i * 2}`}>{user.data}</div>)}
 					</div>
 				)}
